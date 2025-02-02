@@ -5,8 +5,18 @@ import { logger } from "./logger";
 import createToDoItem from "./createToDo";
 import { createProject } from "./createProject";
 import { renderProject } from "./renderToDoList";
+import { renderPopUpForm } from "./renderPopUpForm";
 
 const currentDate = new Date();
+const addToDoButton = document.querySelector('.add-todo');
+
+addToDoButton.addEventListener('click', () => {
+    renderPopUpForm();
+    const overlay = document.getElementById('pop-up-overlay');
+    overlay.classList.toggle('show');
+})
+
+
 
 animate();
 const item = createToDoItem("first todo", "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to", `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`, 1);
