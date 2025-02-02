@@ -1,0 +1,345 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Reddit Sans';
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+:root {
+    --background-color: #FEF9E1;
+    --shadow-color: #E5D0AC;
+    --accent-color: #A31D1D;
+    --dark-accent-color: #6D2323;
+
+    --default-font-size: 16px;
+}
+
+* {
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.sideboard {
+    position: fixed;
+    width: 20em;
+    height: 100vh;
+    /* background-color: var(--shadow-color); */
+    background-image: linear-gradient(to bottom, var(--shadow-color), var(--background-color));
+    box-shadow: 5px -5px 5px #856f4b;
+
+    display: flex;
+    flex-direction: column;
+
+    border-end-end-radius: 2em;
+    border-start-end-radius: 2em;
+}
+
+.sideboard h2 {
+    text-align: center;
+
+    text-decoration: underline;
+
+    margin: 0.5em 0;
+
+    font-size: 3em;
+    font-family: 'Itim';
+    color: #3e3e3e;
+}
+
+.create-project {
+    height: 2em;
+    width: 80%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 1em;
+
+    font-family: 'Itim';
+    color: var(--background-color);
+    margin: 1em auto;
+
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 0.4em;
+
+    box-shadow: 2px 2px 2px var(--dark-accent-color);
+}
+
+.project-list {
+    list-style: disc;
+}
+
+.project-list li {
+    padding: 0 2em;
+}
+
+h1 {
+    font-family: 'Itim';
+    font-size: 4em;
+
+    color: #3e3e3e;
+    text-shadow: 3px 3px 2px #3e3e3e;
+
+    margin-top: 0.2em;
+}
+
+main {
+    margin-left: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-container {
+    width: 80%;
+    border-radius: 2em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+
+    padding: 2em 1em;
+    margin: 1em 2em 0;
+
+    background-color: var(--shadow-color);
+}
+
+.add-todo {
+    width: 80%;
+    height: 2em;
+
+    padding: 0 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: 'Itim';
+    color: var(--background-color);
+
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 0.4em;
+
+    box-shadow: 2px 2px 2px var(--dark-accent-color);
+}
+
+.plus {
+    height: 1em;
+    filter: brightness(0) saturate(100%) invert(90%) sepia(21%) saturate(336%) hue-rotate(331deg) brightness(108%) contrast(99%);
+}
+
+.add-todo,
+.create-project {
+    font-size: 1.2em;
+}
+
+.add-todo:hover,
+.create-project:hover {
+    background-color: #931a1a;
+}
+
+.todo-list-section {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.todo-list-section div {
+    background-image: radial-gradient(white, var(--background-color));
+    border-radius: 2em;
+
+    position: relative;
+
+    padding: 2em;
+
+    height: 8em;
+}
+
+.todo-list-section h2 {
+    display: inline-block;
+
+    font-size: 2em;
+    font-variant: small-caps;
+
+    color: var(--accent-color);
+    font-weight: bold;
+
+    margin-bottom: 0.5em;
+}
+
+.todo-list-section p {
+    color: #3e3e3e;
+}
+
+.fade-rotate-out {
+    animation: fadeRotateOut 0.5s ease-out backwards;
+}
+
+.date {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+h1 img {
+    height: 0.5em;
+    filter: brightness(0) saturate(100%) invert(10%) sepia(1%) saturate(668%) hue-rotate(321deg) brightness(107%) contrast(70%);
+}
+
+input[type="checkbox"] {
+    background-color: #3e3e3e;
+}
+
+@keyframes fadeRotateOut {
+    0% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.5);
+    }
+}
