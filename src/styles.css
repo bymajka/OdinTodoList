@@ -328,8 +328,133 @@ h1 img {
     filter: brightness(0) saturate(100%) invert(10%) sepia(1%) saturate(668%) hue-rotate(321deg) brightness(107%) contrast(70%);
 }
 
-input[type="checkbox"] {
-    background-color: #3e3e3e;
+.overlay-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pop-up-window {
+    background: var(--background-color);
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0 0 1.5em var(--shadow-color);
+    width: 20em;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.pop-up-window h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-shadow: none;
+    text-decoration: underline;
+}
+
+.pop-up-window form {
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-up-window label {
+    margin: 0.5em 0;
+    font-size: 1.2em;
+    align-self: flex-start;
+}
+
+.pop-up-window input {
+    padding: 0.8em;
+    margin-bottom: 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 0.6em;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.compleate-block input {
+    width: auto;
+}
+
+.compleate-block {
+    align-self: flex-start;
+}
+
+.submit-form,
+.cancel {
+    padding: 0.5em 0;
+    border: #ccc;
+    border-radius: 0.5em;
+    margin: 0.5em 0;
+    color: whitesmoke;
+}
+
+.submit-form {
+    width: 100%;
+    background-color: #9acd80;
+
+    font-family: 'Itim';
+    transition: 1s;
+}
+
+.submit-form:hover {
+    background-color: #68c43b;
+    transition: 1s;
+}
+
+.cancel {
+    width: 10em;
+    background-color: var(--accent-color);
+}
+
+.cancel:hover {
+    background-color: var(--accent-color);
+    animation: cancel-anim 2s ease-in-out backwards;
+}
+
+@keyframes cancel-anim {
+    0% {
+        transform: translateX(2px);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.overlay-container.show {
+    display: flex;
+    opacity: 1;
 }
 
 @keyframes fadeRotateOut {
