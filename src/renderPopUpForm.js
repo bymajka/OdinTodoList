@@ -1,3 +1,6 @@
+import { handleFormSubmit } from "./handleFormSubmit.js";
+import { closePopUp } from "./closePopUp.js";
+
 export const renderPopUpForm = () => {
     const overlayContainer = document.createElement('div');
     overlayContainer.classList.add('overlay-container');
@@ -38,8 +41,12 @@ export const renderPopUpForm = () => {
 
     document.body.appendChild(overlayContainer);
 
+    submitButton.addEventListener('click', (event) => {
+        handleFormSubmit(event, title, desc, date, compleated, overlayContainer);
+    })
+
     cancelButton.addEventListener('click', () => {
-        overlayContainer.remove();
+        closePopUp(overlayContainer);
     });
 }
 

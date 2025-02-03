@@ -1,36 +1,28 @@
 import "./styles.css";
 
 import animate from "./animate";
-import { logger } from "./logger";
-import createToDoItem from "./createToDo";
 import { createProject } from "./createProject";
-import { renderProject } from "./renderToDoList";
-import { renderPopUpForm } from "./renderPopUpForm";
+import { logger } from "./logger";
+import { renderPopUpForm,} from "./renderPopUpForm";
+import { renderProjectInput } from "./renderProjectInput";
 
-const currentDate = new Date();
+const projects = [];
+
+
 const addToDoButton = document.querySelector('.add-todo');
+const addProjectButton = document.querySelector('.create-project');
+
+const projectContainer = document.querySelector('.project-list');
+export const project = createProject("FirstProject");
 
 addToDoButton.addEventListener('click', () => {
     renderPopUpForm();
     const overlay = document.getElementById('pop-up-overlay');
     overlay.classList.toggle('show');
 })
-
-
+addProjectButton.addEventListener('click', () => {
+    renderProjectInput(projectContainer);
+    projects.push(createProject("project2"));
+})
 
 animate();
-const item = createToDoItem("first todo", "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to", `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`, 1);
-const item2 = createToDoItem("second todo", "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be", new Date().getDate(), 2);
-logger(item.toDoInfo());
-item.compleate();
-logger(item.toDoInfo());
-logger(item2.toDoInfo());
-const project = createProject("FirstProject");
-project.addToDoToList(item);
-project.addToDoToList(item2);
-renderProject(project);
-logger(project.projectInfo());
-project.sortByPriority();
-logger(project.toDoList);
-project.removeFromToDoList(item2);
-logger(project.toDoList);

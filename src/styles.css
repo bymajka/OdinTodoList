@@ -203,12 +203,27 @@ body {
     box-shadow: 2px 2px 2px var(--dark-accent-color);
 }
 
-.project-list {
-    list-style: disc;
+
+.project-list * {
+    padding: 0.5em 2em;
 }
 
-.project-list li {
-    padding: 0 2em;
+
+
+.project-list input {
+    padding: 0.5em;
+    margin: 1em auto;
+    border: 1px solid #ccc;
+    border-radius: 0.6em;
+    font-size: 1.2em;
+    width: 100%;
+    box-sizing: border-box;
+
+    color: var(--dark-accent-color);
+}
+
+.project-list input::placeholder {
+    color: var(--dark-accent-color);
 }
 
 h1 {
@@ -268,6 +283,15 @@ main {
     filter: brightness(0) saturate(100%) invert(90%) sepia(21%) saturate(336%) hue-rotate(331deg) brightness(108%) contrast(99%);
 }
 
+.cross {
+    height: 1em;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+
+
+}
+
 .add-todo,
 .create-project {
     font-size: 1.2em;
@@ -293,8 +317,6 @@ main {
     position: relative;
 
     padding: 2em;
-
-    height: 8em;
 }
 
 .todo-list-section h2 {
